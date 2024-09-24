@@ -35,6 +35,7 @@ header {
 }
 .main {
     padding: 20px;
+    padding-bottom: 0;
 }
 
 .back-button {
@@ -128,8 +129,9 @@ th, td {
 }
 
 th {
-    font-weight: 600;
+    font-weight: 500;
     color: #666;
+    font-size: 15px;
 }
 
 tr.recommended {
