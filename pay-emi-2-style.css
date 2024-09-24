@@ -144,8 +144,9 @@ tr.recommended {
     margin-top: 0.2rem;
 }
 
-footer {
+.footer {
     background-color: #333;
+    border-radius: 15px;
     color: #fff;
     padding: 1rem;
     padding-top: 5px;
