@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+        header {
+            display: flex;
+            background-color: #000000;
+            color: white;
+            /* padding: 10px 10px; */
+            text-align: center;
+    }
+        #variant{
+            padding:8px 10px;
+            margin: 0;
+            color: #f4f4f4;
+        }
+        
+        .div-main{
+            width: 400px;
+            background-color: azure;
+            box-shadow: inset;
+            background-color: #000;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+        .logo{
+            width: 70px;
+            float: right;
+            margin-top: -35px;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .account-details-header {
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .account-details-header h1 {
+            font-size: 24px;
+        }
+        .account-details-header .back-btn {
+            font-size: 18px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .credit-card {
+            background: linear-gradient(90deg, #4a4a4a, #000);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .credit-card h2, .credit-card h3 {
+            margin-bottom: 10px;
+        }
+        .credit-card .card-number {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .visa-logo {
+            float: right;
+            margin-top: -10px;
+        }
+        .account-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .summary-box {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        .summary-box span {
+            font-weight: bold;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .service-item {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+        .service-item i {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .service-item p {
+            font-size: 14px;
+        }
+        /* Fixed Deposit Section */
+        .fixed-deposit {
+            margin-top: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .fixed-deposit h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .fixed-deposit .summary-box {
+            margin-bottom: 0;
+        }
+        .view-details a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div-main">
+        <!-- <header>
+            <img src="logo/unity.jpg" alt="Bank Logo" width="40" height="40">
+            <h2 id="variant">Credit Cards</h2>
+        </header> -->
+
+        <div class="account-details-header">
+            <a href="index.html" class="back-btn">&larr;</a>
+            <h1>Account Details</h1>
+        </div>
+    
+        <div class="credit-card">
+            <h2>Essence | **** 5258</h2>
+            <img src="logo/rupay.png" alt="Visa" class="logo">
+        </div>
+    
+        <div class="account-summary">
+            <div class="summary-box">
+                <span>Unbilled Amount</span>
+                <span>₹3,724.00</span>
+            </div>
+            <div class="summary-box">
+                <span>Outstanding Amount</span>
+                <span>₹5,263.75</span>
+            </div>
+            <div class="summary-box">
+                <span>Credit Limit</span>
+                <span>₹1,45,736.25</span>
+            </div>
+            <div class="summary-box">
+                <span>Cash Limit</span>
+                <span>₹15,000.00</span>
+            </div>
+        </div>
+    
+        <div class="services-grid">
+            <div class="service-item">
+                <a href="statement.html">
+                    <i>&#128196;</i> <!-- Icon placeholder -->
+                    <p>Card Statement</p>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="">
+                    <i>&#128179;</i> <!-- Icon placeholder -->
+                    <p>Unbilled Transactions*</p>    
+                </a>
+                </div>
+            <div class="service-item">
+                <a href="txn-history.html">
+                    <i>&#128240;</i> <!-- Icon placeholder -->
+                    <p>Transaction History</p>
+                </a>
+            </div>
+            <div class="service-item">
+                <i>&#128178;</i> <!-- Icon placeholder -->
+                <p>Payment History*</p>
+            </div>
+            <div class="service-item">
+                <i>&#128179;</i> <!-- Icon placeholder -->
+                <p>Auto Debit*</p>
+            </div>
+            <div class="service-item">
+                <a href="increase-limit.html">
+                    <i>&#128179;</i> <!-- Icon placeholder -->
+                    <p>Increase Credit Limit</p>
+                </a>
+            </div>
+            <div class="service-item">
+                <i>&#128196;</i> <!-- Icon placeholder -->
+                <p>Request Duplicate Statement*</p>
+            </div>
+            <div class="service-item">
+                <i>&#128197;</i> <!-- Icon placeholder -->
+                <p>Spend Analyzer*</p>
+            </div>
+            <div class="service-item">
+                <i>&#128274;</i> <!-- Icon placeholder -->
+                <p>Insurance Nomination*</p>
+            </div>
+        </div>
+    
+        <!-- Fixed Deposit Account Section -->
+        <div class="fixed-deposit">
+            <h3>Fixed Deposit Account</h3>
+            <div class="summary-box">
+                <span>Total Deposit</span>
+                <span>₹1,50,000.00</span>
+            </div>
+            <div class="summary-box">
+                <span>Maturity Amount</span>
+                <span>₹1,59,750.00</span>
+            </div>
+            <div class="view-details"></div>
+                <a href="FD-details.html">View Details &rarr;</a>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

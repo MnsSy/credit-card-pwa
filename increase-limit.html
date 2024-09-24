@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link FD - Modern Banking</title>
+    <link rel="stylesheet" href="increase-limit-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a class="back-button" href="index.html">←</a>
+            <h1 id="title">Increase Credit Limit</h1>
+        </header>
+        <main>
+            <div class="card-container">
+                <div class="credit-card">
+                    <div class="card-front">
+                        <div class="card-header">
+                            <h1 style="margin: 5px; font-size: 20px; color:#ffffff;">Elevate | 5258</h1>
+                            <!-- <img src="logo/rupay.png" alt="Rupay" class="logo"> -->
+                        </div>
+                        <div class="card-body">
+                            <!-- <img src="logo/unity.jpg" alt="Bank Logo" class="bank-logo"> -->
+                            <div class="limit-info">
+                                <div>
+                                    <div class="amount">₹ 2,540.00</div>
+                                    <div class="label">Limit Utilised</div>
+                                </div>
+                                <div>
+                                    <div class="amount">₹ 10,000.00</div>
+                                    <div class="label">Total Credit Limit</div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" id="limitProgress"></div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+                
+            
+            <div class="card total-deposits fade-in">
+                <h2>Add more FD</h2>
+                <!-- <p class="total-amount">₹<span id="totalAmount">35,000</span></p> -->
+                <div class="button-container">
+                    <a href="add-fd.html"><button class="button button-primary">Create FD</button></a>
+                    <!-- <button class="button button-secondary" onclick="alert('RD creation not implemented')">Create RD</button> -->
+                </div>
+            </div>
+            <div class="fd-or">
+                <h3>OR</h3>
+                <span class="fd-instriction"> Choose from the following eligible FDs</span>
+            </div>
+
+            <div id="fdList">
+                <div class="card fd-item fade-in">
+                    <div class="fd-header">
+                        <span class="fd-id">FD 001 7KVMBS</span>
+                        <span class="fd-status">Liened</span>
+                    </div>
+                    <div class="fd-details">
+                        <div class="fd-detail">
+                            <span class="fd-detail-label">Deposit Amount</span>
+                            <span class="fd-detail-value">₹10,000</span>
+                        </div>
+                        <div class="fd-detail">
+                            <span class="fd-detail-label">Total Payout</span>
+                            <span class="fd-detail-value">₹10,890</span>
+                        </div>
+                        <div class="fd-detail">
+                            <span class="fd-detail-label">Maturity Date</span>
+                            <span class="fd-detail-value">Sun Sep 21 2025</span>
+                        </div>
+                        <div class="fd-detail">
+                            <span class="fd-detail-label">Time of Maturity</span>
+                            <span class="fd-detail-value">1 year</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fd-item fade-in">
+
+                    <div class="fd-header">
+                        <span class="fd-id">FD 002 7K5MBS</span>
+                        <a href="" style="text-decoration: none;"><span class="fd-status" id="link">Link to Card</span></a>
+                    </div>
+                    <div class="fd-details">
+                        <div class="fd-detail">
+                            <span class="fd-detail-label">Deposit Amount</span>
+                            <span class="fd-detail-value">₹15,000</span>
+                        </div>
+                        <div class="fd-detail">
+                            <span class="fd-detail-label">Total Payout</span>
+                            <span class="fd-detail-value">₹16,164</span>
+                        </div>
+                        <div class="fd-detail">
+                            <span class="fd-detail-label">Maturity Date</span>
+                            <span class="fd-detail-value">Sun Aug 19 2025</span>
+                        </div>
+                        <div class="fd-detail">
+                            <span class="fd-detail-label">Time of Maturity</span>
+                            <span class="fd-detail-value">1 year</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- <script>
+        let totalAmount = 10000;
+        let fdCount = 1;
+
+        function createFD() {
+            const amount = Math.floor(Math.random() * 5000) + 5000;
+            const maturityDate = new Date();
+            maturityDate.setFullYear(maturityDate.getFullYear() + 1);
+            const totalPayout = Math.floor(amount * 1.065);
+
+            const fdItem = document.createElement('div');
+            fdItem.className = 'card fd-item fade-in';
+            fdItem.innerHTML = `
+                <div class="fd-header">
+                    <span class="fd-id">FD ${fdCount.toString().padStart(3, '0')} ${Math.random().toString(36).substring(7).toUpperCase()}</span>
+                    <span class="fd-status">Active</span>
+                </div>
+                <div class="fd-details">
+                    <div class="fd-detail">
+                        <span class="fd-detail-label">Deposit Amount</span>
+                        <span class="fd-detail-value">₹${amount.toLocaleString()}</span>
+                    </div>
+                    <div class="fd-detail">
+                        <span class="fd-detail-label">Total Payout</span>
+                        <span class="fd-detail-value">₹${totalPayout.toLocaleString()}</span>
+                    </div>
+                    <div class="fd-detail">
+                        <span class="fd-detail-label">Maturity Date</span>
+                        <span class="fd-detail-value">${maturityDate.toDateString()}</span>
+                    </div>
+                    <div class="fd-detail">
+                        <span class="fd-detail-label">Time of Maturity</span>
+                        <span class="fd-detail-value">1 year</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('fdList').prepend(fdItem);
+            totalAmount += amount;
+            document.getElementById('totalAmount').textContent = totalAmount.toLocaleString();
+            fdCount++;
+        }
+
+        // Initialize with one FD
+        createFD();
+    </script> -->
+</body>
+</html>

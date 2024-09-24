@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="txn-history-2.css">
+</head>
+<body>
+    <div class="div-main">
+        <header>
+            <a href="index.html" class="back-button">&#8592;</a>
+            <h1>Transaction History</h1>
+        </header>
+        <div class="container">
+            <div class="promo-message">
+                Convert eligible transactions, total Minimum of ₹2000 into EMI at once!
+            </div>
+            <div class="transaction-list">
+                <div class="transaction-card" onclick="showTransactionDetails(this)">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <div class="transaction-details">
+                        <div>ABC merchant</div>
+                        <div class="transaction-date">18 Sep 2024</div>
+                        <span class="transaction-tag tag-reward">+8 Reward Points</span>
+                    </div>
+                    <div class="transaction-amount">₹ 500.00 Dr</div>
+                    
+                </div>
+                <div class="transaction-card" onclick="showTransactionDetails(this)">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <div class="transaction-details">
+                        <div>YOUTUBE CYBS SI</div>
+                        <div class="transaction-date">17 Sep 2024</div>
+                        <span class="transaction-tag tag-reward">+2 Reward Points</span>
+                    </div>
+                    <div class="transaction-amount">₹ 189.00 Dr</div>
+                </div>
+                <div class="transaction-card" onclick="showTransactionDetails(this)">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <div class="transaction-details">
+                        <div>XYZ merchant</div>
+                        <div class="transaction-date">16 Sep 2024</div>
+                        <span class="transaction-tag tag-reward">+3 Reward Points</span>
+                    </div>
+                    <div class="transaction-amount">₹ 457.00 Dr</div>
+                </div>
+                <div class="transaction-card" onclick="showTransactionDetails(this)">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <div class="transaction-details">
+                        <div>INFINITY PAYMENT RECEIVED, THANK YOU</div>
+                        <div class="transaction-date">14 Sep 2024</div>
+                    </div>
+                    <div class="transaction-amount">₹ 2,159.35 Cr</div>
+                </div>
+                <div class="transaction-card" onclick="showTransactionDetails(this)">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <div class="transaction-details">
+                        <div>Amazon Inc</div>
+                        <div class="transaction-date">11 Sep 2024</div>
+                        <span class="transaction-tag tag-reward">+19 Reward Points</span>
+                        <!-- <span class="transaction-tag tag-emi">Eligible for EMI</span> -->
+                    </div>
+                    <div class="transaction-amount">₹ 4,400.00 Dr</div>
+                </div>
+            </div>
+            <button class="convert-button" onclick="convertSelectedToEMI()">Convert To EMI</button>
+        </div>
+    </div>
+    
+    <script>
+        function showTransactionDetails(card) {
+            // alert('Transaction details: ' + card.querySelector('.transaction-details div:first-child').textContent);
+        }
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelector('.tab.active').classList.remove('active');
+                this.classList.add('active');
+            });
+        });
+
+        function convertSelectedToEMI() {
+            const selectedTransactions = Array.from(document.querySelectorAll('.transaction-checkbox:checked'))
+                .map(checkbox => checkbox.closest('.transaction-card').querySelector('.transaction-details div:first-child').textContent);
+            
+            if (selectedTransactions.length > 0) {
+                alert('Converting the following transactions to EMI:\n' + selectedTransactions.join('\n'));
+            } else {
+                alert('Please select at least one transaction to convert to EMI.');
+            }
+        }
+        function updateConvertButton() {
+            const selectedTransactions = document.querySelectorAll('.transaction-checkbox:checked').length;
+            const convertButton = document.getElementById('convertButton');
+            if (selectedTransactions > 0) {
+                convertButton.classList.add('active');
+            } else {
+                convertButton.classList.remove('active');
+            }
+        }
+        function convertSelectedToEMI() {
+            const selectedTransactions = Array.from(document.querySelectorAll('.transaction-checkbox:checked'))
+                .map(checkbox => checkbox.closest('.transaction-card').querySelector('.transaction-details div:first-child').textContent);
+            
+            if (selectedTransactions.length > 0) {
+                alert('Converting the following transactions to EMI:\n' + selectedTransactions.join('\n'));
+            } else {
+                alert('Please select at least one transaction to convert to EMI.');
+            }
+        }
+    </script>
+</body>
+</html>

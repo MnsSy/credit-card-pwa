@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexipay</title>
+    <link rel="stylesheet" href="pay-emi-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <a href="index.html" style="text-decoration: none;"><button class="back-button" onclick="fun">←</button></a>
+            </div>
+            <div><h1 style="margin: 5px;">Pay in EMI</h1></div>
+        </header>
+        <div class="main">
+            <div class="progress">
+                <div class="progress-step active">1</div>
+                <div class="progress-step">2</div>
+                <div class="progress-step">3</div>
+            </div>
+            <div class="card">
+                <div class="transaction-info">
+                    <div>Available Transactions</div>
+                    <div style="text-align: right;">Selected Transactions</div>
+                </div>
+                <div class="amount-info">
+                    <div class="amount">3</div>
+                    <div class="amount" id="selectedTransactions">0 of 3</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="transaction-info">
+                    <div>Eligible Amount</div>
+                    <div>Selected Amount</div>
+                </div>
+                <div class="amount-info">
+                    <div class="amount">₹4,800.00</div>
+                    <div class="amount" id="selectedAmount">₹0.00</div>
+                </div>
+            </div>
+            <h2>Select Transactions to convert to EMI</h2>
+            <div class="transaction-item">
+                <div class="checkbox" id="selectAll"></div>
+                <div class="transaction-details">Select All</div>
+            </div>
+            <ul class="transaction-list">
+                <li class="transaction-item">
+                    <div class="checkbox"></div>
+                    <div class="transaction-details">
+                        <div>Ikea IND pvt</div>
+                        <div>Mumbai</div>
+                        <div>13 Sep 2024</div>
+                    </div>
+                    <div class="transaction-amount">₹1,600</div>
+                </li>
+                <li class="transaction-item">
+                    <div class="checkbox"></div>
+                    <div class="transaction-details">
+                        <div>Riot* IE</div>
+                        <div>Dublin</div>
+                        <div>29 Aug 2024</div>
+                    </div>
+                    <div class="transaction-amount">₹2,200</div>
+                </li>
+                <li class="transaction-item">
+                    <div class="checkbox"></div>
+                    <div class="transaction-details">
+                        <div>Amazon Ind</div>
+                        <div>Mumbai</div>
+                        <div>15 Jul 2024</div>
+                    </div>
+                    <div class="transaction-amount">₹1,000</div>
+                </li>
+            </ul>
+            <div class="buttons">
+                <a href="index.html"><button class="btn btn-cancel">Cancel</button></a>
+                <a href="pay-emi-2.html"><button class="btn btn-continue">Continue</button></a>
+            </div>
+
+        </div>
+            
+    
+    </div>
+    <script>
+        const checkboxes = document.querySelectorAll('.checkbox');
+        const selectAll = document.getElementById('selectAll');
+        const selectedTransactionsElement = document.getElementById('selectedTransactions');
+        const selectedAmountElement = document.getElementById('selectedAmount');
+        let selectedCount = 0;
+        let selectedAmount = 0;
+        const transactionAmounts = [1600, 2200, 1000];
+
+        function updateSelection() {
+            selectedTransactionsElement.textContent = `${selectedCount} of 3`;
+            selectedAmountElement.textContent = `₹${selectedAmount.toFixed(2)}`;
+        }
+
+        function toggleCheckbox(checkbox) {
+            if (checkbox.style.backgroundColor) {
+                checkbox.style.backgroundColor = '';
+                return false;
+            } else {
+                checkbox.style.backgroundColor = '#ffd700';
+                return true;
+            }
+        }
+
+        function updateSelectAllState() {
+            selectAll.style.backgroundColor = selectedCount === 3 ? '#ffd700' : '';
+        }
+
+        selectAll.addEventListener('click', () => {
+            const isChecked = toggleCheckbox(selectAll);
+            checkboxes.forEach((cb, i) => {
+                if (i !== 0) {
+                    cb.style.backgroundColor = isChecked ? '#ffd700' : '';
+                }
+            });
+            selectedCount = isChecked ? 3 : 0;
+            selectedAmount = isChecked ? 4800 : 0;
+            updateSelection();
+            // localStorage.setItem("amount",selectedAmount)
+            sessionStorage.setItem("amount",selectedAmount)
+        });
+
+        checkboxes.forEach((checkbox, index) => {
+            if (index !== 0) {
+                checkbox.addEventListener('click', () => {
+                    const isChecked = toggleCheckbox(checkbox);
+                    selectedCount += isChecked ? 1 : -1;
+                    selectedAmount += isChecked ? transactionAmounts[index - 1] : -transactionAmounts[index - 1];
+                    updateSelectAllState();
+                    updateSelection();
+                    // localStorage.setItem("amount",selectedAmount)
+                    sessionStorage.setItem("amount",selectedAmount)
+                });
+            }
+        });
+    </script>
+</body>
+</html>

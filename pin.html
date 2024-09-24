@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change PIN</title>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --background-color: #f9f9f9;
+            --text-color: #2d3436;
+            --error-color: #d63031;
+            --success-color: #00b894;
+            --input-bg: #ffffff;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* min-height: 100vh; */
+            /* padding: 20px; */
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            /* border-radius: 20px; */
+            box-shadow: 0 10px 30px var(--shadow-color);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            height: 85vh;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        .div-main {
+            height: 100%;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        input[type="password"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--secondary-color);
+        }
+
+        input[type="password"]:focus + label {
+            color: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .error {
+            color: var(--error-color);
+            font-size: 14px;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .error.show {
+            opacity: 1;
+            height: auto;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            text-align: center;
+            color: var(--success-color);
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .success-message.show {
+            opacity: 1;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        header {
+            background: linear-gradient(135deg, #030803, #0a1400);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            cursor: pointer;
+            padding: 0;
+        }
+        .card-info {
+            background: linear-gradient(135deg, #030803, #0a1400);
+            color: white;
+            padding: 1rem;
+        }
+        .card-number {
+            font-size: 1.05rem;
+            letter-spacing: 0.2rem;
+            /* margin-bottom: 1rem; */
+        }
+        .submit {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div-main">
+        <header>
+            <a href="index.html"><button class="back-button" onclick="history.back()">←</button></a>
+            <h1 style="margin: 0; color: white;"> Set PIN</h1>
+        </header>
+        <section class="card-info">
+            <div class="card-number">ESSENCE | •••• 5258</div>
+        </section>
+        <div class="container">
+            <!-- <h1>Change PIN</h1> -->
+            <form id="pinChangeForm">
+                <div class="input-group">
+                    <input type="password" id="newPin" name="newPin" maxlength="4" required>
+                    <label for="newPin">Enter new PIN</label>
+                    <div id="newPinError" class="error"></div>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="confirmPin" name="confirmPin" maxlength="4" required>
+                    <label for="confirmPin">Confirm PIN</label>
+                    <div id="confirmPinError" class="error"></div>
+                </div>
+                <button type="submit" class="submit">Change PIN</button>
+            </form>
+            <div id="successMessage" class="success-message">PIN changed successfully!</div>
+        </div>
+    
+
+    </div>
+    
+    <script>
+        document.getElementById('pinChangeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newPin = document.getElementById('newPin');
+            const confirmPin = document.getElementById('confirmPin');
+            const newPinError = document.getElementById('newPinError');
+            const confirmPinError = document.getElementById('confirmPinError');
+            const successMessage = document.getElementById('successMessage');
+            
+            newPinError.textContent = '';
+            confirmPinError.textContent = '';
+            newPinError.classList.remove('show');
+            confirmPinError.classList.remove('show');
+            successMessage.classList.remove('show');
+            
+            if (newPin.value.length !== 4 || !/^\d+$/.test(newPin.value)) {
+                newPinError.textContent = 'PIN must be 4 digits';
+                newPinError.classList.add('show');
+                newPin.classList.add('shake');
+                setTimeout(() => newPin.classList.remove('shake'), 500);
+                return;
+            }
+            
+            if (newPin.value !== confirmPin.value) {
+                confirmPinError.textContent = 'PINs do not match';
+                confirmPinError.classList.add('show');
+                confirmPin.classList.add('shake');
+                setTimeout(() => confirmPin.classList.remove('shake'), 500);
+                return;
+            }
+            
+            // If validation passes, you can submit the form or make an API call here
+            successMessage.classList.add('show');
+            this.reset();
+        });
+
+        // Float label effect
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.previousElementSibling.classList.add('active');
+            });
+            input.addEventListener('blur', () => {
+                if (input.value === '') {
+                    input.previousElementSibling.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

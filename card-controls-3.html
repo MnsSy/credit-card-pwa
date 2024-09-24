@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Control</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: white;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #030803, #0a1400);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+        h1 {
+            font-size: 1.2rem;
+        }
+        .card-info {
+            background: linear-gradient(135deg, #030803, #0a1400);
+            color: white;
+            padding: 1rem;
+        }
+        .card-number {
+            font-size: 1.2rem;
+            letter-spacing: 0.2rem;
+            margin-bottom: 1rem;
+        }
+        .usage-tabs {
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .usage-tab {
+            flex: 1;
+            text-align: center;
+            padding: 0.75rem;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+        .tab-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background-color: white;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+        .usage-tab.active {
+            color: #1a237e;
+        }
+        .content {
+            padding: 1rem;
+        }
+        .card-holder {
+            background-color: #f5f5f5;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        .setting {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        .setting-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .setting-name {
+            font-weight: bold;
+        }
+        .toggle {
+            width: 50px;
+            height: 24px;
+            background-color: #ccc;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+        .toggle::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: 0.3s;
+        }
+        .toggle.active {
+            background-color: #3949ab;
+        }
+        .toggle.active::before {
+            left: 28px;
+        }
+        .limit-setting {
+            display: none;
+        }
+        .limit-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .limit-value {
+            font-weight: bold;
+            color: #3949ab;
+        }
+        input[type="range"] {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="back-button" onclick="history.back()">←</button>
+            <h1>Card Control</h1>
+        </header>
+        <section class="card-info">
+            <div class="card-number">ESSENCE | •••• •••• •••• 5258</div>
+            <div class="usage-tabs">
+                <div class="tab-slider"></div>
+                <div class="usage-tab active" data-usage="domestic">Domestic Usage</div>
+                <div class="usage-tab" data-usage="international">International Usage</div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="card-holder">
+                Primary | MRINAY SWARGIARY XXXX5258
+            </div>
+            <!-- <p style="font-size: 0.875rem; color: #666; margin-bottom: 1rem;">All limits set are daily transaction limits and must be in multiples of 1000</p> -->
+            <div id="settings-container"></div>
+        </section>
+    </div>
+
+    <script>
+        const settingsData = {
+            domestic: [
+                { name: 'Online Spends', type: 'limit', enabled: true, limit: 86000 },
+                { name: 'Tap and Pay', type: 'toggle', enabled: false },
+                { name: 'Merchant Outlet', type: 'limit', enabled: true, limit: 86000 },
+                { name: 'ATM Withdrawal', type: 'toggle', enabled: false }
+            ],
+            international: [
+                { name: 'Online Spends', type: 'limit', enabled: true, limit: 50000 },
+                { name: 'Tap and Pay', type: 'toggle', enabled: false },
+                { name: 'Merchant Outlet', type: 'limit', enabled: true, limit: 50000 },
+                { name: 'ATM Withdrawal', type: 'toggle', enabled: false }
+            ]
+        };
+
+        let currentUsage = 'domestic';
+
+        function createSettingElement(setting) {
+            const settingElement = document.createElement('div');
+            settingElement.className = 'setting';
+            settingElement.innerHTML = `
+                <div class="setting-header">
+                    <span class="setting-name">${setting.name}</span>
+                    <div class="toggle ${setting.enabled ? 'active' : ''}" data-name="${setting.name}"></div>
+                </div>
+                ${setting.type === 'limit' ? `
+                    <div class="limit-setting" style="display: ${setting.enabled ? 'block' : 'none'}">
+                        <div class="limit-header">
+                            <span>Spending Limit</span>
+                            <span class="limit-value">₹ ${setting.limit.toLocaleString()}</span>
+                        </div>
+                        <input type="range" min="0" max="100000" step="1000" value="${setting.limit}" data-name="${setting.name}">
+                        <input type="number" value="${setting.limit}" data-name="${setting.name}">
+                    </div>
+                ` : ''}
+            `;
+            return settingElement;
+        }
+
+        function renderSettings() {
+            const container = document.getElementById('settings-container');
+            container.innerHTML = '';
+            settingsData[currentUsage].forEach(setting => {
+                container.appendChild(createSettingElement(setting));
+            });
+        }
+
+        function updateSetting(name, property, value) {
+            const setting = settingsData[currentUsage].find(s => s.name === name);
+            if (setting) {
+                setting[property] = value;
+                renderSettings();
+            }
+        }
+
+        function switchTab(usage) {
+            currentUsage = usage;
+            document.querySelectorAll('.usage-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.usage === usage);
+            });
+            document.querySelector('.tab-slider').style.transform = `translateX(${usage === 'international' ? '100%' : '0'})`;
+            renderSettings();
+        }
+
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('usage-tab')) {
+                switchTab(event.target.dataset.usage);
+            } else if (event.target.classList.contains('toggle')) {
+                const name = event.target.dataset.name;
+                const newState = !event.target.classList.contains('active');
+                updateSetting(name, 'enabled', newState);
+            }
+        });
+
+        document.addEventListener('input', function(event) {
+            if (event.target.type === 'range' || event.target.type === 'number') {
+                const name = event.target.dataset.name;
+                const value = Math.round(parseInt(event.target.value) / 1000) * 1000;
+                updateSetting(name, 'limit', Math.min(Math.max(value, 0), 100000));
+            }
+        });
+
+        renderSettings();
+    </script>
+</body>
+</html>

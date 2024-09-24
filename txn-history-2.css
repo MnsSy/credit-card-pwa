@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+}
+.div-main{
+    width:100%;
+    max-width: 400px;
+    background-color: azure;
+    box-shadow: inset;
+    height: 100vh;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    background-color: #000e00;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.back-button {
+    font-size: 24px;
+    margin-right: 15px;
+    text-decoration: none;
+    color: white;
+}
+.tab-navigation {
+    display: flex;
+    margin-bottom: 15px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.tab.active {
+    background-color: #ff8c00;
+    color: white;
+}
+.promo-message {
+    background-color: #edfac8;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+.transaction-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+.transaction-card:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.transaction-checkbox {
+    margin-right: 15px;
+}
+.transaction-details {
+    max-width: 60%;
+    /* flex-grow: 1; */
+    font-size: 15px;
+}
+.transaction-amount {
+    font-weight: bold;
+    margin-left: 15px;
+    font-size: 15px;
+    margin-left: auto;
+}
+.transaction-date {
+    font-size: 0.8em;
+    color: #888;
+}
+.transaction-tag {
+    font-size: 0.8em;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    display: inline-block;
+}
+.tag-reward {
+    background-color: #e6ffe6;
+    color: #008000;
+}
+.tag-emi {
+    background-color: #e6f3ff;
+    color: #0066cc;
+}
+.convert-button {
+    background-color: #808080;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.convert-button:hover {
+    background-color: #696969;
+}
+.convert-button.active {
+    background-color: #ff8c00;
+    cursor: pointer;
+    opacity: 1;
+}
+.convert-button.active:hover {
+    background-color: #e67e00;
+}

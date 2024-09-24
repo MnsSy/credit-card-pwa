@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 380px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#selected-amount {
+    color: #00ad42;
+}
+
+header {
+    display: flex;
+    background-color: #000000;
+    color: white;
+    padding: 10px 10px;
+    /* text-align: center; */
+    align-items: center;
+}
+.main {
+    padding: 20px;
+}
+
+.back-button {
+    display: flex;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+#backButton {
+    background: none;
+    border: none;
+    color: #fff;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+main {
+    flex-grow: 1;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.step {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.completed {
+    background-color: #161616;
+    color: #fff;
+}
+
+.current {
+    background-color: #008638;
+    color: #fff;
+}
+
+.step-number {
+    background-color: #666666;
+    color: #ffffff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    font-weight: 600;
+    color: #666;
+}
+
+tr.recommended {
+    background-color: #E8F5E9;
+}
+
+.recommended-label {
+    color: #4CAF50;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    padding-top: 5px;
+}
+
+#emiInfo {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#cancelButton {
+    background-color: #fff;
+    color: #000;
+}
+
+#applyButton {
+    background-color: #FFC107;
+    color: #000;
+}

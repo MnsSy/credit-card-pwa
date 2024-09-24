@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #ff8c00;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .back-button {
+            font-size: 24px;
+            margin-right: 15px;
+            text-decoration: none;
+            color: white;
+        }
+        .tab-navigation {
+            display: flex;
+            margin-bottom: 15px;
+            background-color: #f8f8f8;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tab.active {
+            background-color: #ff8c00;
+            color: white;
+        }
+        .promo-message {
+            background-color: #ffe4b5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .transaction-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+        .transaction-card:hover {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .transaction-checkbox {
+            margin-right: 15px;
+        }
+        .checkbox-container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-right: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            user-select: none;
+        }
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+        .checkbox-container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+        .checkbox-container input:checked ~ .checkmark {
+            background-color: #ff8c00;
+        }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+        .checkbox-container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+        .transaction-details {
+            flex-grow: 1;
+        }
+        .transaction-amount {
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        .transaction-date {
+            font-size: 0.8em;
+            color: #888;
+        }
+        .transaction-tag {
+            font-size: 0.8em;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: 5px;
+            display: inline-block;
+        }
+        .tag-reward {
+            background-color: #e6ffe6;
+            color: #008000;
+        }
+        .tag-emi {
+            background-color: #e6f3ff;
+            color: #0066cc;
+        }
+        .convert-button {
+            background-color: #808080;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: not-allowed;
+            transition: background-color 0.3s;
+            opacity: 0.5;
+        }
+        .convert-button.active {
+            background-color: #ff8c00;
+            cursor: pointer;
+            opacity: 1;
+        }
+        .convert-button.active:hover {
+            background-color: #e67e00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="back-button">&#8592;</a>
+        <h1>Last 30 Days</h1>
+    </header>
+    <div class="container">
+        <div class="tab-navigation">
+            <div class="tab active">Last 30 Days</div>
+            <div class="tab">Pinned Transactions</div>
+        </div>
+        <div class="promo-message">
+            Convert up to 5 transactions of Minimum ₹1500 into EMI at once!
+        </div>
+        <div class="transaction-list">
+            <div class="transaction-card" onclick="redirectToDetails()">
+                <label class="checkbox-container">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <span class="checkmark"></span>
+                </label>
+                <div class="transaction-details">
+                    <div>INFINITY PAYMENT RECEIVED, THANK YOU</div>
+                    <div class="transaction-date">18 Sep 2024</div>
+                </div>
+                <div class="transaction-amount">₹ 189.00 Cr</div>
+            </div>
+            <div class="transaction-card" onclick="redirectToDetails()">
+                <label class="checkbox-container">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <span class="checkmark"></span>
+                </label>
+                <div class="transaction-details">
+                    <div>YOUTUBE CYBS SI</div>
+                    <div class="transaction-date">17 Sep 2024</div>
+                </div>
+                <div class="transaction-amount">₹ 189.00 Dr</div>
+            </div>
+            <div class="transaction-card" onclick="redirectToDetails()">
+                <label class="checkbox-container">
+                    <input type="checkbox" class="transaction-checkbox" disabled>
+                    <span class="checkmark"></span>
+                </label>
+                <div class="transaction-details">
+                    <div>INFINITY PAYMENT RECEIVED, THANK YOU</div>
+                    <div class="transaction-date">16 Sep 2024</div>
+                    <span class="transaction-tag tag-reward">+3 Reward Points</span>
+                </div>
+                <div class="transaction-amount">₹ 189.00 Cr</div>
+            </div>
+            <div class="transaction-card" onclick="redirectToDetails()">
+                <label class="checkbox-container">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <span class="checkmark"></span>
+                </label>
+                <div class="transaction-details">
+                    <div>INFINITY PAYMENT RECEIVED, THANK YOU</div>
+                    <div class="transaction-date">14 Sep 2024</div>
+                </div>
+                <div class="transaction-amount">₹ 2,519.35 Cr</div>
+            </div>
+            <div class="transaction-card" onclick="redirectToDetails()">
+                <label class="checkbox-container">
+                    <input type="checkbox" class="transaction-checkbox" onclick="event.stopPropagation(); updateConvertButton()">
+                    <span class="checkmark"></span>
+                </label>
+                <div class="transaction-details">
+                    <div>CREDIT BALANCE REFUND</div>
+                    <div class="transaction-date">11 Sep 2024</div>
+                    <span class="transaction-tag tag-emi">Eligible for EMI</span>
+                </div>
+                <div class="transaction-amount">₹ 7,400.00 Dr</div>
+            </div>
+        </div>
+        <button id="convertButton" class="convert-button" onclick="convertSelectedToEMI()">Convert To EMI</button>
+    </div>
+    <script>
+        function redirectToDetails() {
+            window.location.href = '#';
+        }
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelector('.tab.active').classList.remove('active');
+                this.classList.add('active');
+            });
+        });
+
+        function updateConvertButton() {
+            const selectedTransactions = document.querySelectorAll('.transaction-checkbox:checked').length;
+            const convertButton = document.getElementById('convertButton');
+            if (selectedTransactions > 0) {
+                convertButton.classList.add('active');
+            } else {
+                convertButton.classList.remove('active');
+            }
+        }
+
+        function convertSelectedToEMI() {
+            const selectedTransactions = Array.from(document.querySelectorAll('.transaction-checkbox:checked'))
+                .map(checkbox => checkbox.closest('.transaction-card').querySelector('.transaction-details div:first-child').textContent);
+            
+            if (selectedTransactions.length > 0) {
+                alert('Converting the following transactions to EMI:\n' + selectedTransactions.join('\n'));
+            } else {
+                alert('Please select at least one transaction to convert to EMI.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.container-main {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+header {
+  background: linear-gradient(135deg, #030803, #0a1400);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+/* .back-btn {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+} */
+
+.user-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.card-info {
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f1f2e;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-details h3 {
+  margin-bottom: 5px;
+}
+
+.card img {
+  width: 40px;
+}
+
+.transaction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.transaction-header h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.transaction-header span {
+  font-size: 14px;
+  color: #888;
+}
+
+.date-selector {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.transaction-list {
+  list-style: none;
+}
+
+.transaction {
+  background-color: #fafafa;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.transaction-date {
+  font-size: 14px;
+  color: #888;
+}
+
+.reward-points {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.transaction-amount {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.type {
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.debit {
+  color: #d9534f;
+}
+
+.credit {
+  color: #5cb85c;
+}

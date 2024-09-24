@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Upgrade Options</title>
+    <link rel="stylesheet" href="card-upgrade-style.css">
+</head>
+<body>
+    <div class="container">
+    
+        <header>
+                <div>
+                    <a href="card-upgrade.html"><button class="back-button" onclick="fun">←</button></a>
+                </div>
+                <div><h1>Card Upgrade</h1></div>
+        </header>
+
+            <div class="card-page">
+                <div class="credit-card Elegance">
+                    <div class="card-elegance">
+                        <div class="card-header">
+                            <h1 style="margin: 0px; font-size: 20px;">Elegance</h1>
+                            <img src="logo/rupay.png" alt="Rupay" class="logo">
+                            <!-- <a class="increase-limit" href="increase-limit.html"> <img src="logo/add-2.png" alt="add" id="add-icon"></a> -->
+                        </div>
+                        <div class="card-body">
+                            <img src="logo/unity.jpg" alt="Bank Logo" class="bank-logo">
+                            <div class="limit-info">
+                                <div>
+                                    <div class="amount">₹ 799</div>
+                                    <div class="label">Joining Fee</div>
+                                </div>
+                                <div>
+                                    <div class="amount">₹ 599</div>
+                                    <div class="label">Annual Fee</div>
+                                </div>
+                            </div>
+                            <!-- <div class="progress-bar">
+                                <div class="progress" id="limitProgress"></div>
+                            </div> -->
+                            <!-- <p class="card-number">XXXX XXXX XXXX 5258</p> -->
+                            <p class="card-name">MRINAY SWARGIARY</p>
+                        </div>
+                
+                    </div>
+                </div>
+                <div class="min-amount">
+                    <h4>Minimum FD required:  ₹ 1,00,000 </h4>
+                    <h4 style="color: #722400; font-size: 15px; margin-top: 5px;"> You are not eligible for this upgrade</h4>
+                </div>
+                <div classs="add-fd">
+                    <a href="increase-limit.html"><button class="fd-button">Add more FD</button></a>
+                </div>
+                <div class="benefits">
+                    <h2>Elegance Card Benefits</h2>
+                    <ul>
+                        <li>5x Rewards on Travel</li>
+                        <li>3x Rewards on Dining</li>
+                        <!-- <li>8 Airport Lounge Access</li>
+                        <li>Annual Travel Credit</li> -->
+                    </ul>
+                </div>
+                <a href="#"><button class="upgrade-btn" style="background-color: #525252;">Upgrade to Elegance</button></a>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        const container = document.querySelector('.swipe-container');
+        const pages = document.querySelectorAll('.card-page');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        let startX, moveX;
+        let isDragging = false;
+
+        container.addEventListener('touchstart', handleTouchStart);
+        container.addEventListener('touchmove', handleTouchMove);
+        container.addEventListener('touchend', handleTouchEnd);
+
+        container.addEventListener('mousedown', handleTouchStart);
+        container.addEventListener('mousemove', handleTouchMove);
+        container.addEventListener('mouseup', handleTouchEnd);
+        container.addEventListener('mouseleave', handleTouchEnd);
+
+        function handleTouchStart(e) {
+            startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+            isDragging = true;
+            container.style.transition = 'none';
+        }
+
+        function handleTouchMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            moveX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+            const diff = startX - moveX;
+            container.style.transform = `translateX(${-currentIndex * 100 - (diff / container.offsetWidth) * 100}%)`;
+        }
+
+        function handleTouchEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            const diff = startX - moveX;
+            const threshold = container.offsetWidth / 4;
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0 && currentIndex < pages.length - 1) {
+                    currentIndex++;
+                } else if (diff < 0 && currentIndex > 0) {
+                    currentIndex--;
+                }
+            }
+            goToPage(currentIndex);
+        }
+
+        function goToPage(index) {
+            currentIndex = index;
+            container.style.transition = 'transform 0.3s ease-out';
+            container.style.transform = `translateX(-${index * 100}%)`;
+            updateDots(index);
+        }
+
+        function updateDots(index) {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function upgradeCard(type) {
+            alert(`Thank you for upgrading to the ${type} Card!`);
+        }
+    </script>
+</body>
+</html>

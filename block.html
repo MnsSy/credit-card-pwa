@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotlist & Re-issue Card</title>
+    <link rel="stylesheet" href="block.css">
+</head>
+<body>
+    <div class="container-main">
+
+        <header>
+            <button class="back-button" onclick="history.back()">←</button>
+            <h1 id="title">Block & Re-issue</h1>
+        </header>
+
+        <div class="container">
+            <h1>Hotlist & Re-issue Card</h1>
+            
+            <!-- Choose a Reason Section -->
+            <div class="tab-section">
+                <div class="tab" id="lost-stolen" onclick="selectTab('lost-stolen')">
+                    <!-- <img src="lost-icon.png" alt="Lost/Stolen"> -->
+                    <p>Lost/Stolen</p>
+                </div>
+                <div class="tab" id="damaged" onclick="selectTab('damaged')">
+                    <!-- <img src="damaged-icon.png" alt="Damaged"> -->
+                    <p>Damaged</p>
+                </div>
+                <div class="tab" id="temp-block" onclick="selectTab('temp-block')">
+                    <!-- <img src="block-icon.png" alt="Temporary Block"> -->
+                    <p>Temporary Block</p>
+                </div>
+            </div>
+    
+            <!-- Re-issue Card Section -->
+            <div id="reissue-section">
+                <input type="checkbox" id="reissue-checkbox" checked>
+                <label for="reissue-checkbox" id="reissue-text">Re-issue card?</label>
+                <p id="reissue-details">The new card will be sent to your registered mailing address.<br>Re-issue charges will be added to your statement.</p>
+            </div>
+
+            <div class="spacer"></div>
+            
+            <!-- Continue Button -->
+            <button class="continue-btn">Continue</button>
+            <button class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    
+   
+
+    <script src="block.js"></script>
+</body>
+</html>

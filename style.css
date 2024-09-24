@@ -1,0 +1,554 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.div-main{
+    width:100%;
+    max-width: 380px;
+    background-color: azure;
+    box-shadow: inset;
+}
+header {
+    display: flex;
+    background-color: #000000;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+}
+#variant{
+    padding:8px 10px;
+    margin: 0;
+    color: #f4f4f4;
+}
+
+.increase-limit{
+    position: absolute;
+    top: 83px;
+    right: 40px;
+
+}
+
+#add-icon{
+    width: 25px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #001f3f;
+    overflow: hidden;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #0074D9;
+}
+
+footer {
+    text-align: center;
+    background-color: #001f3f;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+button {
+    background-color: #0074D9;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    /* margin-top: 10px; */
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+.app-grid {
+    box-sizing: border-box;
+    /* justify-content: center; */
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(3, 1fr);  
+    grid-template-rows: repeat(3, 1fr);     
+    gap: 15px;                              
+    width: 100%;
+    margin-bottom:20px;
+    /* max-width: 400px; */
+}
+
+/* App button styles */
+.app-button {
+    box-sizing: border-box;
+    display: flex;
+    /* width: 100px; */
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: rgb(9, 24, 26);
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.app-button:hover {
+    background-color: #005bb5;
+}
+
+/* Make sure buttons look good on smaller screens */
+@media screen and (max-width: 400px) {
+    .app-button {
+        font-size: 16px;
+        /* padding: 15px; */
+    }
+}
+
+.grid-icons{
+    height: 50px;
+    /* width: 70px; */
+}
+
+#card-detail{
+    height: 210px;
+    background-color: #9af04d;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.card-container {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* perspective: 1000px; */
+    align-items: center;
+    height:220px;
+    justify-content: center;
+}
+
+.credit-card {
+    position: relative;
+    width: 90%;
+    height: 210px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    margin: 0;
+}
+
+.credit-card.flip {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.card-front {
+    /* background-color: #d0ff00; */
+    /* background: linear-gradient(120deg, #eaff71, #889701 ); */
+    /* background: linear-gradient(135deg, #6a11cb, #2575fc); */
+    background-image: linear-gradient( 109.6deg,  rgba(9,9,121,1) 11.2%, rgba(144,6,161,1) 53.7%, rgba(0,212,255,1) 100.2% );
+    
+    color: rgb(223, 239, 255);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-back {
+    /* background-color: #333; */
+    background-image: linear-gradient( 67.4deg,  rgb(0, 94, 112) 11.2%, rgb(69, 1, 78) 53.7%, rgb(0, 0, 31) 100.2% );
+    /* background-image: linear-gradient( 71.4deg,  rgb(0, 0, 31) 11.2%, rgb(69, 1, 78) 53.7%, rgb(0, 94, 112) 100.2% ); */
+    color: white;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h1 {
+    margin: 0;
+}
+
+.logo {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 60px;
+}
+
+.bank-logo {
+    width: 50px;
+    height: auto;
+    /* margin: 10px 0; */
+}
+
+.available-credit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+}
+.amount {
+    font-size: 20px;
+    font-weight: bold;
+}
+.label {
+    font-size: 12px;
+    color: #ffffff;
+}
+.limit-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progress {
+    height: 100%;
+    background-color: #ff5be4;
+    width: 60px;
+    transition: width 0.5s ease-out;
+    border-radius: 5px;
+}
+.card-number {
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    margin: 2px;
+}
+
+.card-name {
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+.card-cvv, .card-expiry, .full-card-number {
+    margin: 10px 0;
+}
+
+.view-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #005bb5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.view-button:hover {
+    background-color: #003d80;
+}
+
+
+.payment-summary-container {
+    box-sizing: border-box;
+    width: 95%;
+    /* max-width: 95%px; */
+    margin: 15px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.summary-header p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.summary-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.summary-box {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #f0f1f7;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.summary-box:last-child {
+    margin-right: 0;
+}
+
+.total-amount {
+    background-color: #e5e6fc;
+}
+
+.min-amount {
+    background-color: #e5e6fc;
+}
+
+.summary-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.summary-box h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.summary-box span {
+    font-size: 0.7rem;
+    color: #999;
+}
+
+.payment-details h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    color: #333;
+    text-align: center;
+}
+
+.details-row {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.details-box {
+    flex: 1;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.details-box:last-child {
+    margin-right: 0;
+}
+
+.details-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.details-box h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+
+
+.pay-emi {
+    background-color: #444;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.pay-now {
+    background-color: #000;
+    color: #fff;
+}
+
+.view-details {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-details a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.view-details a:hover {
+    color: #444;
+}
+
+.btn-pay-emi {
+    background-color: #444;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-right: 4%;
+}
+
+.pay-btn {
+    width: 48%;
+}
+.btn-pay-now {
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+    width: 48%;
+}
+
+.btn-pay-emi:hover, .btn-pay-now:hover {
+    opacity: 0.85;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.upgrade-box {
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 10px;
+    width: 95%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 70px;
+    
+}
+.upgrade-box:hover {
+    transform: translateY(-5px);
+}
+.upgrade-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: whitesmoke;
+    margin-top: 0;
+}
+.upgrade-subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.feature-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 25px;
+    text-align: left;
+}
+.feature-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.feature-list li::before {
+    content: "✓";
+    color: #ffd700;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.upgrade-button {
+    background-color: #ffd700;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+.upgrade-button:hover {
+    background-color: #ffea00;
+}
+/* @media (max-width: 450px) {
+    .summary-section, .details-row {
+        flex-direction: column;
+    }
+
+    .summary-box, .details-box {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    
+
+    .btn-pay-emi, .btn-pay-now {
+        
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .btn-pay-now {
+        margin-bottom: 0;
+    }
+} */

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Management PWA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="div-main">
+        <header>
+            <img src="logo/unity.jpg" alt="Bank Logo" width="40" height="40">
+            <h2 id="variant">Credit Cards</h2>
+        </header>
+    
+        <!-- <nav>
+            <ul>
+                <li><a href="#card-control">Card Control</a></li>
+                <li><a href="#emi-summary">EMI Summary</a></li>
+                <li><a href="#transaction-history">Transaction History</a></li>
+                <li><a href="#card-limit">Card Limit Management</a></li>
+                <li><a href="#raise-dispute">Raise a Dispute</a></li>
+                <li><a href="#emi-conversion">EMI Conversion</a></li>
+                <li><a href="#bill-statement">Bill & Statement</a></li>
+                <li><a href="#rewards">Reward Portal</a></li>
+            </ul>
+        </nav> -->
+    
+        <!-- Card Details -->
+        <div class="card-container">
+            <div class="credit-card">
+                <div class="card-front">
+                    <div class="card-header">
+                        <h1 style="margin: 5px; font-size: 20px;">Essence | 5258</h1>
+                        <img src="logo/rupay.png" alt="Rupay" class="logo">
+                        <a class="increase-limit" href="increase-limit.html"> <img src="logo/add-2.png" alt="add" id="add-icon"></a>
+                    </div>
+                    <div class="card-body">
+                        <img src="logo/unity.jpg" alt="Bank Logo" class="bank-logo">
+                        <div class="limit-info">
+                            <div>
+                                <div class="amount">₹ 2,540.00</div>
+                                <div class="label">Limit Utilised</div>
+                            </div>
+                            <div>
+                                <div class="amount">₹ 10,000.00</div>
+                                <div class="label">Total Credit Limit</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" id="limitProgress"></div>
+                        </div>
+                        <!-- <p class="card-number">XXXX XXXX XXXX 5258</p> -->
+                        <p class="card-name">MRINAY SWARGIARY</p>
+                    </div>
+                    <button class="view-button" onclick="flipCard()">View</button>
+                </div>
+                <div class="card-back">
+                    <p class="card-cvv">CVV: 123</p>
+                    <p class="card-expiry">Expiry Date: 12/34</p>
+                    <p class="full-card-number">6234 5678 9012 5258</p>
+                    <button class="view-button" onclick="flipCard()">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-summary-container">
+            <div class="summary-header">
+                <p>Summary of last statement, dated 24 Aug 2024</p>
+            </div>
+        
+            <div class="summary-section">
+                <div class="summary-box total-amount">
+                    <p>Total Amt. Due</p>
+                    <h2>₹4,540.00</h2>
+                </div>
+                <div class="summary-box min-amount">
+                    <p>Min. Amt. Due</p>
+                    <h2>₹2,000.00</h2>
+                    <span>Due on 13 Sep 2024</span>
+                </div>
+            </div>
+        
+            <div class="payment-details">
+                <h3>Last payment details</h3>
+                <div class="details-row">
+                    <div class="details-box">
+                        <p>Amount Paid</p>
+                        <h2>₹2,000.00</h2>
+                    </div>
+                    <div class="details-box">
+                        <p>Payment Date</p>
+                        <h2>11 Sep 2024</h2>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="action-buttons">
+                <a href="pay-emi.html" class="pay-btn"><button class="btn-pay-emi">Pay in EMI</button></a>
+                <button class="btn-pay-now">Pay Now*</button>
+            </div>
+        
+            <div class="view-details">
+                <a href="account-details.html">View Account Details &rarr;</a>
+            </div>
+        </div>
+
+        <main>
+            <div class="app-grid">
+                <a href="card-controls-3.html" class="app-button"> <div class="div-grid"> <div>Card Controls</div> <div><img class="grid-icons" src="logo/card-control.png" alt=""></div> </div></a>
+                <a href="txn-history-2.html" class="app-button"> <div class="div-grid"> <div>Transaction History</div> <div><img class="grid-icons" src="logo/transaction-history.png" alt=""></div> </div></a>
+                <a href="emi-summary.html" class="app-button"> <div class="div-grid"> <div>EMI Summary</div> <div><img class="grid-icons" src="logo/emi-summary.png" alt=""></div> </div> </a>
+                <a href="pin.html" class="app-button"> <div class="div-grid"> <div>Set PIN</div> <div><img class="grid-icons" src="logo/pin.png" alt=""></div> </div> </a>
+                <a href="block.html" class="app-button"> <div class="div-grid"> <div> Block Card</div> <div><img class="grid-icons" src="logo/block.png" alt=""></div> </div> </a>
+                <a href="" class="app-button"> <div class="div-grid"> <div> Rewards* </div> <div><img class="grid-icons" src="logo/reward-card.png" alt=""></div> </div> </a>
+                <a href="" class="app-button"> <div class="div-grid"> <div> Raise a Dispute* </div> <div><img class="grid-icons" src="logo/card.png" alt=""></div> </div> </a>
+                <a href="" class="app-button"> <div class="div-grid"> <div> Sevice Request* </div> <div><img class="grid-icons" src="logo/card.png" alt=""></div> </div> </a>
+                <a href="" class="app-button"> <div class="div-grid"> <div> CVP* </div> <div><img class="grid-icons" src="logo/card.png" alt=""></div> </div> </a>
+                <!-- <a href="" class="app-button">Page 10</a>
+                <a href="" class="app-button">Page 11</a>
+                <a href="" class="app-button">Page 12</a> -->
+            </div>
+            <div class="upgrade-box">
+                <h2 class="upgrade-title">Upgrade Your Card Today!</h2>
+                <p class="upgrade-subtitle">Experience premium benefits with Unity Secured Cards</p>
+                <ul class="feature-list">
+                    <!-- <li>5x Rewards on Travel</li>
+                    <li>Complimentary Airport Lounge Access</li>
+                    <li>0% APR for 15 Months</li>
+                    <li>$0 Annual Fee for the First Year</li> -->
+                </ul>
+                <a href="card-upgrade.html"><button class="upgrade-button">Upgrade Now</button></a>
+            </div>
+    
+            <!-- <section id="card-control">
+                <h2>Card Control</h2>
+                <input type="button" value="Card Controls" onclick="location.href='card-controls.html';">
+            </section>
+    
+            <section id="emi-summary">
+                <h2>EMI Summary</h2>
+                <div id="emi-details">No EMI active currently.</div>
+            </section>
+    
+            <section id="transaction-history">
+                <h2>Transaction History</h2>
+                <ul id="transaction-list">
+                    <li>No transactions available</li>
+                </ul>
+            </section>
+    
+            <section id="card-limit">
+                <h2>Card Limit Management</h2>
+                <label for="limit-input">Set New Limit:</label>
+                <input type="number" id="limit-input" placeholder="Enter limit">
+                <button id="set-limit">Set Limit</button>
+            </section>
+    
+            <section id="raise-dispute">
+                <h2>Raise a Dispute</h2>
+                <label for="dispute-input">Transaction ID:</label>
+                <input type="text" id="dispute-input" placeholder="Enter Transaction ID">
+                <button id="raise-dispute-btn">Raise Dispute</button>
+            </section>
+    
+            <section id="emi-conversion">
+                <h2>EMI Conversion</h2>
+                <label for="emi-convert-input">Transaction ID:</label>
+                <input type="text" id="emi-convert-input" placeholder="Enter Transaction ID">
+                <button id="convert-emi-btn">Convert to EMI</button>
+            </section>
+    
+            <section id="bill-statement">
+                <h2>Bill & Statement</h2>
+                <button id="download-statement">Download Statement</button>
+            </section>
+    
+            <section id="rewards">
+                <h2>Reward Portal</h2>
+                <div id="reward-points">You have 0 reward points.</div>
+            </section> -->
+        </main>
+    
+        <!-- <footer>
+            <p>© 2024 Credit Card Management</p>
+        </footer> -->
+    </div>
+    
+</body>
+</html>

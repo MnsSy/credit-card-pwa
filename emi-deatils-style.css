@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+.div-main{
+    width: 100%;
+    max-width: 400px;
+    background-color: azure;
+    box-shadow: inset;
+}
+.header {
+    background-color: #050a00;
+    color: white;
+    padding: 10px;
+    display: flex;
+    /* justify-content: space-between; */
+}
+.header-h1 {
+    margin: 5px 10px;
+}
+.back-button {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    margin: auto 0px;
+}
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+}
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.info-label {
+    color: #666;
+}
+.info-value {
+    font-weight: bold;
+}
+.emi-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.emi-check {
+    color: green;
+    font-size: 20px;
+}
+.emi-date {
+    font-weight: bold;
+}
+.emi-amount {
+    color: #f7941d;
+    font-weight: bold;
+}
+.button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.button:hover {
+    background-color: #0056b3;
+}

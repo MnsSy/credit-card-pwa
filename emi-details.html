@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Summary</title>
+    <link rel="stylesheet" href="emi-deatils-style.css">
+</head>
+<body>
+    <div class="div main">
+        <div class="header">
+            <a href="emi-summary.html" class="back-button">&#8592;</a>
+            <h1 class="header-h1">EMI Details</h1>
+            <!-- <span>&#63;</span> -->
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="card-title">Other EMI</div>
+                <div class="info-row">
+                    <span class="info-label">Loan Amount</span>
+                    <span class="info-value">₹ 39,999</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Loan Tenure</span>
+                    <span class="info-value">3 Months</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Rate of Interest</span>
+                    <span class="info-value">12.99%</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Processing Fee</span>
+                    <span class="info-value">₹ 0 (One time)</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="emi-row">
+                    <span class="emi-check">&#10003;</span>
+                    <span class="emi-date">05 Oct 2021</span>
+                    <span class="emi-amount">₹ 13,622.7</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Principal Amount</span>
+                    <span class="info-value">₹ 13,189.71</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Interest Amount</span>
+                    <span class="info-value">₹ 432.99</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="emi-row">
+                    <span class="emi-check">&#10003;</span>
+                    <span class="emi-date">05 Nov 2021</span>
+                    <span class="emi-amount">₹ 13,622.7</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Principal Amount</span>
+                    <span class="info-value">₹ 13,332.49</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Interest Amount</span>
+                    <span class="info-value">₹ 290.21</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="emi-row">
+                    <span class="emi-check">&#10003;</span>
+                    <span class="emi-date">05 Dec 2021</span>
+                    <span class="emi-amount">₹ 13,622.69</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Principal Amount</span>
+                    <span class="info-value">₹ 13,476.8</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Interest Amount</span>
+                    <span class="info-value">₹ 145.89</span>
+                </div>
+            </div>
+            <button class="button" onclick="downloadAmortization()">Download Amortization</button>
+            <button class="button" onclick="sendEmail()">Send on Email</button>
+        </div>
+    </div>
+    
+    <script>
+        function downloadAmortization() {
+            alert('Downloading amortization...');
+            // Implement download functionality here
+        }
+
+        function sendEmail() {
+            alert('Sending email...');
+            // Implement email sending functionality here
+        }
+    </script>
+</body>
+</html>

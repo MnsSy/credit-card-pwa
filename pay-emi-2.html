@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexipay - Select Offer</title>
+    <link rel="stylesheet" href="pay-emi-2-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <a href="pay-emi.html" style="text-decoration: none;"><button class="back-button" onclick="fun">←</button></a>
+            </div>
+            <div><h1 style="margin: 5px;">Pay in EMI</h1></div>
+        </header>
+
+        <main>
+            <div class="progress-bar">
+                <div class="step completed">✓</div>
+                <div class="step current">2</div>
+                <span>Select Offer</span>
+                <div class="step-number">3</div>
+            </div>
+            <h2>Total Amount Selected <span id="selected-amount">₹3,200</span></h2>
+            <table id="offerTable">
+                <thead>
+                    <tr>
+                        <th>Tenure (months)</th>
+                        <th>Processing Fee (₹)</th>
+                        <th>Interest Rate (% p.a)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="recommended">
+                        <td>
+                            <input type="radio" name="offer" id="offer0" checked>
+                            <label for="offer0">18</label>
+                            <div class="recommended-label">Recommended</div>
+                        </td>
+                        <td>200.00</td>
+                        <td>18.5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="offer" id="offer1">
+                            <label for="offer1">24</label>
+                        </td>
+                        <td>200.00</td>
+                        <td>18.5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="offer" id="offer2">
+                            <label for="offer2">12</label>
+                        </td>
+                        <td>200.00</td>
+                        <td>18.5</td>
+                    </tr>
+                    <!-- Additional rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </main>
+        <footer>
+            <p id="emiInfo">Your monthly EMI will be ₹209</p>
+            <div class="button-group">
+                <a href="pay-emi.html"><button id="cancelButton">Cancel</button></a>
+                <button id="applyButton">Apply</button>
+            </div>
+        </footer>
+    </div>
+    <script src="pay-emi.js"></script>
+</body>
+</html>

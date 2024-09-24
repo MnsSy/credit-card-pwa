@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2f3f5;
+    display: flex;
+    justify-content: center;
+}
+header {
+    background: linear-gradient(135deg, #030803, #0a1400);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+.container{
+    max-width: 400px;
+    background-color: #fff;
+    min-height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.back-button {
+    display: flex;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    flex-direction: row;
+}
+.card-container {
+    background-color: #fff;
+    min-height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #0a1400;
+    color: #fff;
+    border-bottom: 4px solid #a88317;
+}
+
+/* .card-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+} */
+
+.card-type {
+    font-size: 18px;
+    color: #d4af37;
+}
+
+.visa-icon {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.profile-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.statement-overview, 
+.amount-due, 
+.rewards-summary, 
+.emi-schedule, 
+.cashback-summary {
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+h2 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.statement-details p, 
+.rewards-details p, 
+.cashback-details p, 
+.emi-schedule p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.total-outstanding {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.download-btn {
+    background-color: #007bff;
+    color: #fff;
+    margin: 10px;
+}
+
+.view-statement-btn {
+    background-color: #ffc107;
+    color: #000;
+    margin: 10px;
+
+}
+
+.amount-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.total-due h3, .minimum-due h3 {
+    color: #ff5722;
+}
+
+.due-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.pay-now-btn {
+    background-color: #28a745;
+    color: #fff;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.points-expiry {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+    .header {
+        /* flex-direction: column; */
+        text-align: center;
+    }
+    
+    .statement-details, .rewards-details, .cashback-details {
+        text-align: center;
+    }
+
+    .amount-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 100%;
+        /* margin-bottom: 10px; */
+    }
+}
