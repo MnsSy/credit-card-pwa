@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essence Secured Credit Card Rewards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, rgba(9, 9, 121, 1) 0%, rgba(144, 6, 161, 1) 50%, rgba(0, 212, 255, 1) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 11px;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            min-height: calc(100vh - 2rem);
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .back-button {
+            align-self: flex-start;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            margin: auto 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button:before {
+            content: '←';
+            margin-right: 0.5rem;
+        }
+
+        header {
+            display: flex;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #fff;
+            /* margin-bottom: 0.5rem; */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 5px auto;
+        }
+
+        .rewards-summary {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .rewards-summary h2 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .rewards-details {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .reward-item {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .available-points {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin: 1rem 0;
+            margin-top: 5px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .redeem-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .redeem-info {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .redeem-button {
+            background: linear-gradient(45deg, rgba(0, 212, 255, 1), rgba(144, 6, 161, 1));
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .redeem-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .redeem-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .redeem-button:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        .redeem-button:hover:after {
+            left: -100%;
+            top: -100%;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .rewards-summary h2 {
+                font-size: 1.3rem;
+            }
+
+            .reward-item, .redeem-info {
+                font-size: 0.85rem;
+            }
+
+            .available-points {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button"></a>
+            <h1>Essence Rewards</h1>
+        </header>
+        <p class="subtitle">Track and redeem your reward points</p>
+        <div class="rewards-summary">
+            <h2>Your Rewards Points</h2>
+            <!-- <p class="points">Available points</p> -->
+            <div class="available-points" id="availablePoints">5000</div>
+            <div class="rewards-details">
+                <div class="reward-item">
+                    <span>Opening Reward Points:</span>
+                    <span>3000</span>
+                </div>
+                <div class="reward-item">
+                    <span>Reward Points Earned:</span>
+                    <span>2500</span>
+                </div>
+                <div class="reward-item">
+                    <span>Reward Points Redeemed:</span>
+                    <span>500</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="redeem-section">
+            <p class="redeem-info">Redeem your points now!<br>1 Reward Point = 0.3 INR</p>
+            <button class="redeem-button" onclick="redeemPoints()">Redeem Points</button>
+        </div>
+    </div>
+
+    <script>
+        function redeemPoints() {
+            const availablePoints = document.getElementById('availablePoints');
+            const currentPoints = parseInt(availablePoints.textContent);
+            
+            if (currentPoints > 0) {
+                const redeemAmount = Math.min(currentPoints, 1000); // Redeem up to 1000 points
+                const newBalance = currentPoints - redeemAmount;
+                availablePoints.textContent = newBalance;
+                
+                const inrValue = (redeemAmount * 0.3).toFixed(2);
+                alert(`You've redeemed ${redeemAmount} points for ${inrValue} INR!`);
+            } else {
+                alert("You don't have any points to redeem.");
+            }
+        }
+
+        // Add animation to rewards summary on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const rewardsSummary = document.querySelector('.rewards-summary');
+            rewardsSummary.style.opacity = 0;
+            rewardsSummary.style.transform = 'translateY(20px)';
+            rewardsSummary.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+            setTimeout(() => {
+                rewardsSummary.style.opacity = 1;
+                rewardsSummary.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

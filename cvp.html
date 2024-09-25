@@ -20,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 1rem;
+            padding: 10px;
         }
 
         .container {
@@ -29,11 +29,26 @@
             background-color: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            padding: 1.5rem;
+            padding: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .back-button {
+            align-self: flex-start;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            margin: auto 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button:before {
+            content: '←';
+            margin-right: 0.5rem;
         }
 
         header {
+            display: flex;
             text-align: center;
             margin-bottom: 1.5rem;
         }
@@ -48,6 +63,7 @@
         .subtitle {
             font-size: 1rem;
             color: rgba(255, 255, 255, 0.8);
+            margin: 5px auto;
         }
 
         .main-benefit {
@@ -104,9 +120,9 @@
         }
 
         @media (max-width: 400px) {
-            .container {
+            /* .container {
                 padding: 1rem;
-            }
+            } */
 
             h1 {
                 font-size: 1.6rem;
@@ -124,15 +140,17 @@
                 font-size: 0.85rem;
             }
         }
+
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Essence Secured Credit Card</h1>
-            <p class="subtitle">Build your credit while enjoying great benefits</p>
+            <a href="index.html" class="back-button"></a>
+            <h1>Essence Secured</h1>
+            
         </header>
-
+        <p class="subtitle">Build your credit while enjoying great benefits</p>
         <div class="main-benefit">
             <h2>Earn 9% Interest on Your Fixed Deposit</h2>
             <p>Your security deposit isn't just sitting idle. It's working for you, earning a competitive 9% interest rate.</p>
